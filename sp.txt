@@ -1,0 +1,11 @@
+store procedure:----
+/*
+ var Result = db.Database.SqlQuery<int>("EXEC AddOrRemoveItemsInList @Ids", param).FirstOrDefault();// when pass id to SP
+ var NameList = db.Database.SqlQuery<NameListModel>("EXEC GetNameList").ToList();
+return view("",varname);
+*/
+
+/*
+ApplicationDbContext db = new ApplicationDbContext();
+string uid = User.Identity.GetUserId();
+get user id*/ 
