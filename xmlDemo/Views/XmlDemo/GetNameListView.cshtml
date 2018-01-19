@@ -1,0 +1,64 @@
+﻿@model  xmlDemo.Models.ListModel
+@{
+    ViewBag.Title = "GetNameListView";
+}
+
+
+<div id="ListBoxPageContainer" class="col-sm-12">
+@using (Html.BeginForm())
+{
+    <br />
+    <br />
+    <br />
+    <div style="font-family:Arial" class="col-sm-5">
+        <h3>Left List</h3>
+        
+            
+            @Html.ListBoxFor(model=>model.SelectedLeftName, Model.LeftList, new { @class = "form-control LeftSide",size =7 })  
+            <br />
+      
+    </div>
+    <div class="col-sm-2">
+        <div style="height:50px"></div>    
+        @Html.ActionLink(">", "GetAddListDataResult", "XmlDemo",new { SelectedNames="XXX" }, new { @class = "ajaxLink" })
+        <br />
+        <br />
+        @Html.ActionLink("<", "GetRemoveListDataResult", "XmlDemo", null, new { @class = "ajaxLink" })
+        <br />
+        <br />
+        @Html.ActionLink(">>", "GetAddListDataResult", "XmlDemo", null, new { @class = "ajaxLink" })
+        <br />
+        <br />
+        @Html.ActionLink("<<", "GetRemoveListDataResult", "XmlDemo", null, new { @class = "ajaxLink" })
+      
+    </div>
+    <div style="font-family:Arial" class="col-sm-5">
+        <h3>Right List</h3>
+     
+            @Html.ListBoxFor(model => model.SelectedRightName, Model.RightList, new { @class = "form-control",size = 7 })
+            <br />
+    
+    </div>
+}
+</div>
+<script>
+    $(function () {
+        $("a.ajaxLink").click(function (e) {          
+            e.preventDefault();
+
+            var ids = $(".LeftSide").val().join(",");
+            this.href = this.href.replace("XXX", ids);    
+            $("#ListBoxPageContainer").load(this.href);
+            //$.ajax({
+            //    url: this.href,
+            //    type: 'POST',
+            //    contentType: 'application/json; charset=utf-8',
+            //    data: JSON.stringify($(".LeftSide").val()),
+            //    success: function(result) {     
+            //        $("#ListBoxPageContainer").html(result);
+            //    }
+            //});
+        });
+
+    });
+</script>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+  <EntityContainerMapping StorageEntityContainer="DBTestModelStoreContainer" CdmEntityContainer="DBTestEntities">
+    <EntitySetMapping Name="ChildTables">
+      <EntityTypeMapping TypeName="DBTestModel.ChildTable">
+        <MappingFragment StoreEntitySet="ChildTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SelectedId" ColumnName="SelectedId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MasterLists">
+      <EntityTypeMapping TypeName="DBTestModel.MasterList">
+        <MappingFragment StoreEntitySet="MasterList">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
